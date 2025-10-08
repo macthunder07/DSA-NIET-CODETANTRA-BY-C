@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure
 struct Node {
     int data;
-    struct Node* prev;
     struct Node* next;
+    struct Node* prev;
 };
 
-// Insert at the end of Doubly Circular Linked List
+// Insert at end
 void insert(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
@@ -21,6 +20,7 @@ void insert(struct Node** head, int value) {
     }
 
     struct Node* last = (*head)->prev;
+
     newNode->next = *head;
     newNode->prev = last;
     last->next = newNode;
